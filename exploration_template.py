@@ -546,7 +546,11 @@ sns.regplot(data=no_one_percenters, x='StatedMonthlyIncome', y='EstimatedLoss')
 #plt.xlim(right=.4);
 
 
-# The chart is very sparse and that is likely due to the outlier of the very high income.
+# The chart is very sparse and that is likely due to the outlier of the very high income. By removing the top 1 percent of StatedMonthlyIncome we see a much larger chart.
+
+# The regression line is almost lost among the data points, but it shows a slight negative correlation, which stands to reason that the higher one's Started Monthly Income, the lower the Estimated Loss.
+
+# Given that there are also datapoints of high Estimated Loss among the higher Stated Monthly Income, it seems almost certain that there are other factors besides income that are used to estimate loss.
 
 # ### Talk about some of the relationships you observed in this part of the investigation. How did the feature(s) of interest vary with other features in the dataset?
 # 
