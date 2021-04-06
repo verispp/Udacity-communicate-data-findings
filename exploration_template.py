@@ -552,6 +552,42 @@ sns.regplot(data=no_one_percenters, x='StatedMonthlyIncome', y='EstimatedLoss')
 
 # Given that there are also datapoints of high Estimated Loss among the higher Stated Monthly Income, it seems almost certain that there are other factors besides income that are used to estimate loss.
 
+#clustered bar chart with prosperscore and borrower rate
+# average rate per prosperscore?
+# or hist plot with prosperscore
+
+print(loans.BorrowerRate.describe())
+
+#step 2 chart initial to see if log transformation of borrower rate makes sense
+
+g = sns.FacetGrid(data = loans, col = 'ProsperScore', col_wrap=4, margin_titles=True)
+g.map(plt.hist, "BorrowerRate");
+
+# We can see as the Prosper Score goes up, the skewing shifts initially from a left skew to a rightward skew, indicating generally that the lower scores have higher Borrower Rates, suggesting higher risk, and high prosper scores have lower Borrower Rates, suggesting lower risk.
+
+
+list(loans.LoanStatus.value_counts().index)
+
+score_order = list(loans.ProsperScore.value_counts().sort_index().index)
+
+#facet bar plot with prosperscore and loanstatus
+
+# Convert the "LoanStatus" column from a plain object type into an ordered categorical type
+statuses = list(loans.LoanStatus.value_counts().index)
+loan_statuses = pd.api.types.CategoricalDtype(ordered=False, categories=statuses)
+loans['LoanStatus'] = loans['LoanStatus'].astype(loan_statuses);
+
+# Plot the Seaborn's FacetGrid
+g = sns.FacetGrid(data = loans, col = 'LoanStatus', col_wrap=4, margin_titles = True)
+g.map(sns.countplot, "ProsperScore", order=score_order);
+
+"""(x = prop_status_counts.values, y = prop_status_counts.index, order=prop_status_counts.index,
+            color=base_color)"""
+
+'''g.map(sns.barplot, 'interval', 'value', order=times)'''
+
+# When looking at the PropserScore across each Loan type, the distribution appears normal and it does not seem like any one or range of ProsperScores is more represented in Past Due or Defaulted loans.
+
 # ### Talk about some of the relationships you observed in this part of the investigation. How did the feature(s) of interest vary with other features in the dataset?
 # 
 # > Your answer here!
