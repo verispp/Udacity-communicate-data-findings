@@ -665,7 +665,7 @@ g.map(sns.regplot, 'ActualLossRate', 'EstimatedLoss');
 #Talk about some of the relationships you observed in this part of the investigation. Were there features that strengthened each other in terms of looking at your 
 #feature(s) of interest?
 
-V#ery little. Prosper Score was the only factor that bore an interesting correlation that could be best seen in a multi-variate analysis comparing against Debt to 
+#Very little. Prosper Score was the only factor that bore an interesting correlation that could be best seen in a multi-variate analysis comparing against Debt to 
 #Income Ratio and Actual Loss Rate. Many other factors that would potentially be relevant turned out not to be relevant at all.
 #Were there any interesting or surprising interactions between features?
 
