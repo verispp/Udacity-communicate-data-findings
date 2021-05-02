@@ -11,8 +11,6 @@ There is approximately 113937 rows of loan records, with 113066 unique listings,
 
 ## Summary of Findings
 
-> Summarize all of your findings from your exploration here, whether you plan on bringing them into your explanatory presentation or not.
-
 Nearly all loans seem to be funded given that the 25 percentile for the column PercentFunded is already at 1 and the average percent funded is 99.86 percent.
 
 Reviewing statistical descriptions of the upper and lower range credit scores, and plotting both on a histogram, we can see that with the exception of a lower range of nearly zero, it would appear the lower range of most credit scores is somewhere in the 700, which is still high in general. And that the distributions between both are almost identical.
@@ -25,7 +23,9 @@ The distribution for Prosper Scores, scored from 1 to 10 (1 being most risky, 10
 
 The distribtuion for EstimatedLoss skews right, with the mean (.08) only being slightly greater than the median (.07). **EstimatedLoss will be relevant to explanatory analysis of factors relevant to loan repayment.**
 
+A good majority of the income range of borrowers is below 74,999 dollars while there is still a substantial number who have incomes above 100,000. **While this is an interesting facet, Income Range will likely play a minimal role in our explanatory evaluation.**
 
+When looking at the proportions of each loan status, half the loans as of the dataset date are outstanding but current, a third were paid off, while the rest are are defaulted, charged off, or past due (all of which are non-payments of the loan). Cancelled and loans on Final Payment are near zero, e.g., the Cancelled rate is seen at five decimal places. **Loan Status will certainly play a significant role in how we drill into the dataset, letting us look at loans that are not current or loans that are defaulted/charged off.**
 
 
 ## Key Insights for Presentation
