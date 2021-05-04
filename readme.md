@@ -27,6 +27,25 @@ A good majority of the income range of borrowers is below 74,999 dollars while t
 
 When looking at the proportions of each loan status, half the loans as of the dataset date are outstanding but current, a third were paid off, while the rest are are defaulted, charged off, or past due (all of which are non-payments of the loan). Cancelled and loans on Final Payment are near zero, e.g., the Cancelled rate is seen at five decimal places. **Loan Status will certainly play a significant role in how we drill into the dataset, letting us look at loans that are not current or loans that are defaulted/charged off.**
 
+The income ranges and even higher level incomes of people who used Prosper was surprising, although the actual income range was consistent between the two variables. When looking at StatedMonthlyIncome, it was useful to transform the income amount to provide a more even view of the distribution.
+
+The distribution of the DebtToIncomeRatio was oddly bimodal and was either very high or very low. While minimal feature engineering was performed, it may be necessary on the LoanStatus column to have all Past Due rows counted together.
+
+Thinking it would be useful to see how accurate the Esitimated Loss was, I determined Actual Loss by dividing LP_GrossPrincipalLoss by LoanOriginalAmount for all entries where the status was Defaulted or Charged Off.
+
+When looking at box and violin plots of StatedMonthlyIncome broken out by LoanStatus, the median and first and third percentiles of StatedMonthlyIncome for the various LoanStatus do not vary significantly excepf for those with the Final Payment in Progress. Indeed the StatedMonthlyIncome for those who completed their loans and those who are past due or defaulted are very similar.
+
+Looking at EstimatedLoss by LoanStatus, EstimatedLoss was a bit higher in the unpaid loans versus the completed or about to be completed loans.
+
+Here I compare estimated loss (Estimated loss is the estimated principal loss on charge-offs) and the Actual Loss Rate (calculated by LP_GrossPrincipalLoss by LoanOriginal amount). Using a scatterplot comparing Estimated Loss by Net Principal Loss (The principal that remains uncollected after any recoveries) isn't as clear as the Net Principal Loss could vary depending on the actual Loan Original Amount. While the comparison to Estimated Loss to Actual Loss is positive, the amount of high actual loss seems incredibly high across a range of Estimated Loss. 
+
+While there is a positive correlation between Estimated Loss and the Debt to Income ratio, it does not seem impressively strong. Indeed we can see that there were both high and low estimated loss rate with a low debt to income ratio. Similarly there are low to mid levels of estimated loss at the highest debt to income ratio. While it appears interesting that there is no high estimated loss once the debt to income ratio passes 3, it is also good to know that there are not many loans with that high a ratio. Regardless of debt to income ratio, there does not seem to be an affect on the actual loss rate. The ability to pay off a loan is not strongly correlated to high debt, though for paid off debts, they tend to be lower on the debt range and there are more points of higher losses in high debts ratios.
+
+When looking at StatedMonthlyIncome against EstimatedLoss, there is a very slight negative correlation, which stands to reason that the higher one's Started Monthly Income, the lower the Estimated Loss. Given that there are also datapoints of high Estimated Loss among the higher Stated Monthly Income, it seems almost certain that there are other factors besides income that are used to estimate loss.
+
+
+
+
 
 ## Key Insights for Presentation
 
