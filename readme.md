@@ -56,3 +56,7 @@ Here rather than see the estimated loss, we can look at the Actual Loss Rate and
 For Prosper Scores 8 to 10, even as the Debt to Income Ratio increased, the Actual Loss Rate did not increase. Unlike the Prosper Scores 1 to 3, where even with low Debt to Income Ratios, the Actual Loss Rates are generally still high. Though the correlation is neutral, we can see the concentration of data points is focused in high Actual Loss Rates even for low Debt to Income Ratios. As the Prosper Score increases, we see more data points in the low end of Actual Loss Rates, even as the correlation stays neutral.
 
 In looking at the Actual Loss Rate for Estimated Loss, it's clear there's no correlation at all. Regardless of the income, the estimated loss had no bearing on the actual loss.
+
+Very little. Prosper Score was the only factor that bore an interesting correlation that could be best seen in a multi-variate analysis comparing against Debt to Income Ratio and Actual Loss Rate. Many other factors that would potentially be relevant turned out not to be relevant at all.
+
+What could be considered surprising is how irrelevant factors like Debt to Income Ratio or income was to determine someone's ability to pay off loans.
