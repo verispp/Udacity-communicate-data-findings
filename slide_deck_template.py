@@ -32,6 +32,7 @@ warnings.simplefilter("ignore")
 
 
 # load in the dataset into a pandas dataframe
+loans = pd.read_csv('engineered_loans_data.csv')
 
 
 # > Note that the above cells have been set as "Skip"-type slides. That means
@@ -55,7 +56,17 @@ warnings.simplefilter("ignore")
 
 # In[ ]:
 
+#facet bar plot with prosperscore and loanstatus
 
+# Convert the "LoanStatus" column from a plain object type into an ordered categorical type
+statuses = list(loans.LoanStatus.value_counts().index)
+loan_statuses = pd.api.types.CategoricalDtype(ordered=False, categories=statuses)
+loans['LoanStatus'] = loans['LoanStatus'].astype(loan_statuses)
+score_order = list(loans.ProsperScore.value_counts().sort_index().index)
+
+# Plot the Seaborn's FacetGrid
+g = sns.FacetGrid(data = loans, col = 'LoanStatus', col_wrap=4, margin_titles = True)
+g.map(sns.countplot, "ProsperScore", order=score_order);
 
 
 
@@ -66,7 +77,8 @@ warnings.simplefilter("ignore")
 # In[ ]:
 
 
-
+g = sns.FacetGrid(data = loans.query('DebtToIncomeRatio < 1.67'), col = 'ProsperScore', col_wrap=4, margin_titles=True)
+g.map(sns.regplot, 'DebtToIncomeRatio', 'ActualLossRate');
 
 
 # > Once you're ready to finish your presentation, check your output by using
