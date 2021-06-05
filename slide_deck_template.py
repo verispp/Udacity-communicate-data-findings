@@ -54,7 +54,8 @@ loans = pd.read_csv('engineered_loans_data.csv')
 # > You should have at least three visualizations in your presentation,
 # but feel free to add more if you'd like!
 
-# In[ ]:
+# In[ ]: # When looking at the PropserScore across each Loan type, the distribution appears normal 
+# and it does not seem like any one or range of ProsperScores is more represented in Past Due or Defaulted loans
 
 #facet bar plot with prosperscore and loanstatus
 
@@ -71,8 +72,10 @@ g.map(sns.countplot, "ProsperScore", order=score_order);
 
 
 # ## (Visualization 3)
-# 
-# 
+
+# Here rather than see the estimated loss, we can look at the Actual Loss Rate and compare it to the Debt to Income Ratio for each level of Prosper Score, a custom risk score. One aspect that can be immediately observed is that the correlation between the Debt to Income Ratio and the Actual Loss Rate goes from neutral with lower Propser Scores and turns negative with the high end of Prosper Scores, from 8 onward. This suggests the Prosper Score has viability in determining whether the loan may be paid back.
+
+#For Prosper Scores 8 to 10, even as the Debt to Income Ratio increased, the Actual Loss Rate did not increase. Unlike the Prosper Scores 1 to 3, where even with low Debt to Income Ratios, the Actual Loss Rates are generally still high. Though the correlation is neutral, we can see the concentration of data points is focused in high Actual Loss Rates even for low Debt to Income Ratios. As the Prosper Score increases, we see more data points in the low end of Actual Loss Rates, even as the correlation stays neutral.
 
 # In[ ]:
 
