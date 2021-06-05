@@ -564,7 +564,11 @@ g = sns.FacetGrid(data = loans, col = 'ProsperScore', col_wrap=4, margin_titles=
 g.map(plt.hist, "BorrowerRate");
 
 # We can see as the Prosper Score goes up, the skewing shifts initially from a left skew to a rightward skew, indicating generally that the lower scores have higher Borrower Rates, suggesting higher risk, and high prosper scores have lower Borrower Rates, suggesting lower risk.
+g = sns.FacetGrid(data = loans, col = 'ProsperScore', col_wrap=4, margin_titles=True)
+g.map(plt.hist, "EstimatedLoss");
 
+g = sns.FacetGrid(data = loans, col = 'ProsperScore', col_wrap=4, margin_titles=True)
+g.map(plt.hist, "ActualLossRate");
 
 list(loans.LoanStatus.value_counts().index)
 
@@ -585,6 +589,9 @@ g.map(sns.countplot, "ProsperScore", order=score_order);
             color=base_color)"""
 
 '''g.map(sns.barplot, 'interval', 'value', order=times)'''
+
+g = sns.FacetGrid(data = loans.query('DebtToIncomeRatio < 1.67'), col = 'ProsperScore', col_wrap=4, margin_titles=True)
+g.map(plt.hist, "DebtToIncomeRatio");
 
 # When looking at the PropserScore across each Loan type, the distribution appears normal and it does not seem like any one or range of ProsperScores is more represented in Past Due or Defaulted loans.
 
