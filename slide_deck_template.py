@@ -43,10 +43,12 @@ loans = pd.read_csv('engineered_loans_data.csv')
 # > Write a comment about your visualization here. The visualization should be in
 # the next cell, as a sub-slide type. Make sure your visualizations are polished!
 
-# In[ ]:
+# In[ ]: The distribution for Prosper Scores, scored from 1 to 10 (1 being most risky, 10 being lowest risk) seems to have normal distribution roughly divided in half.
 
 
-
+bins = np.arange(1, 13) - 0.5
+plt.hist(data=loans, bins=bins, x='ProsperScore', ec='black')
+plt.xticks(np.arange(1, 12));
 
 
 # ## (Visualization 2)
